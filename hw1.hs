@@ -1,7 +1,9 @@
 import Data.List
 
 main :: IO ()
-main = undefined
+main = do
+  print $ validate 4012888888881881
+  print $ validate 4012888888881882
 
 -- double the value of every second digit beginning from the right
 -- [1,3,8,6] -> [2,3,16,6]
@@ -9,6 +11,9 @@ main = undefined
 -- add the digits of the double values
 
 -- calculate the remainder when the sum is divided by 10
+
+-----------------------------------------------------------------
+-- CREDIT CARD VALIDATION
 
 toDigits :: Integer -> [Integer]
 toDigits = reverse . toDigitsRev
@@ -31,7 +36,13 @@ sumDigits = sum . concatMap toDigits
 -- sumDigits = foldr (+) 0
 
 checksum :: Integer -> Integer
-checksum n = sumDigits (doubleEveryOther (toDigitsRev n))
+checksum = sumDigits . doubleEveryOther . toDigitsRev
 
 validate :: Integer -> Bool
 validate n = (checksum n `mod` 10) == 0
+
+----------------------------------------------------------------
+-- TOWERS OF HANOI
+
+type Peg = String
+type Move = (Peg, Peg)
