@@ -1,9 +1,10 @@
-import Data.List
 
 main :: IO ()
 main = do
   print $ validate 4012888888881881
   print $ validate 4012888888881882
+  print $ hanoi 2 "a" "b" "c"
+  print $ hanoi 3 "a" "b" "c"
 
 -- double the value of every second digit beginning from the right
 -- [1,3,8,6] -> [2,3,16,6]
@@ -46,3 +47,15 @@ validate n = (checksum n `mod` 10) == 0
 
 type Peg = String
 type Move = (Peg, Peg)
+
+-- wow you define the game as an infinite list of moves
+hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
+hanoi 0 _ _ _ = []
+hanoi n a b c = hanoi (n-1) a c b ++ [(a,b)] ++ hanoi (n-1) c b a
+
+
+
+
+
+
+
