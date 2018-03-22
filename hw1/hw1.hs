@@ -1,4 +1,4 @@
-
+{-# OPTIONS_GHC -fwarn-missing-signatures #-}  
 main :: IO ()
 main = do
   print $ validate 4012888888881881
