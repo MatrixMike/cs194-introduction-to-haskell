@@ -3,8 +3,11 @@ main :: IO ()
 main = do
   print $ validate 4012888888881881
   print $ validate 4012888888881882
+  print $ validate 5217295211517150 
   print $ hanoi 2 "a" "b" "c"
   print $ hanoi 3 "a" "b" "c"
+  print "xx"
+  print $ hanoi 4 "a" "b" "c"
 
 -- double the value of every second digit beginning from the right
 -- [1,3,8,6] -> [2,3,16,6]
