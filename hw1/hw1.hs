@@ -8,6 +8,9 @@ main = do
   print $ hanoi 3 "a" "b" "c"
   print "xx"
   print $ hanoi 4 "a" "b" "c"
+  print $ toDigitsRev 132456
+  print $ doubleEveryOther [1, 3, 4, 2, 7, 11]
+  
 
 -- double the value of every second digit beginning from the right
 -- [1,3,8,6] -> [2,3,16,6]
@@ -55,7 +58,10 @@ type Move = (Peg, Peg)
 hanoi :: Integer -> Peg -> Peg -> Peg -> [Move]
 hanoi 0 _ _ _ = []
 hanoi n a b c = hanoi (n-1) a c b ++ [(a,b)] ++ hanoi (n-1) c b a
-
+{-
+notice that Peg is defined as a String and Move is defined as a pair of Pegs
+   and that 1st argument is number with ++ as the string separator so identify the 3 string arguments
+-}
 
 
 
